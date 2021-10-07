@@ -16,7 +16,7 @@ Clique em criar tabelas, para o sistema criar as tabelas usadas e suas informaç
 ## Home
 Hoje Mostra a listagem de todos os prestadores de servico, pesquisa funciona por nome, cnpj ou email, pode digitar parte e-mail e apertar enter 
 sistema trara os resultados.
-
+* Caso queira ver os dados como contato do prestador de servico e documentos anexados ao cadastro. basta clicar na opcao expandir.
 
 
 
