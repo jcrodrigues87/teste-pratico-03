@@ -107,6 +107,9 @@
 		
 		//funcao cria tabela
 		public function Criartabela(){
+			
+			
+			
 			$sql = "CREATE TABLE cad_prestador (
 						  id int(10) UNSIGNED NOT NULL,
 						  cnpj varchar(18) DEFAULT NULL,
@@ -126,6 +129,7 @@
 				echo "Tabela Cadarquivo criada";
 				
 				$this->banco->Select("ALTER TABLE cad_prestador  ADD PRIMARY KEY (id);",array());
+				
 			
 				
 				$this->banco->Select("ALTER TABLE cad_prestador   MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;",array());

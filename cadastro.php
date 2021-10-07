@@ -82,20 +82,95 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	
+	 <!-- Adicionando Javascript -->
+    <script>
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('cidade').value="...";
+                document.getElementById('uf').value="...";
+              
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+    </script>
+	
 </head>
 <body>
-	<div class="container">
-		<div class='row'>
-			<center><h1>Cadastro</h1></center>
-		</div>
-		<div class='row'>
-			<div col='col'>
-				<a href='index.php' class='btn btn-primary'>Listagem</a> 
-				<a href='cadastro.php'  class='btn btn-primary'>Cadastrar</a>
-				<a href='configuracao.php' class='btn btn-primary'>Configuracao</a>
-			</div>
-		</div>
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark style="background-color: #ffffff;">
+  <a class="navbar-brand" href="#">Prestador de Serviço</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+	<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="index.php">Home </a>
+			</li><li>
+				<a class="nav-link" href="cadastro.php">Cadastrar <span class="sr-only">(página atual)</span></a>
+			</li><li>	
+			<a class="nav-link" href="configuracao.php">Configuração </a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<div class="container">
+		<div class='row'><br>
+			<h1><br>Cadastro</h1>
+		</div>
 
 		<form action='' method='POST' enctype="multipart/form-data">
 			<div class="row">
@@ -138,7 +213,7 @@
 				Cep:
 			</div>
 			<div class="row">
-				<input type='text' id='cep' name='cep' value=''>
+				<input type='text' id='cep' name='cep' value='' maxlength="9" onblur="pesquisacep(this.value);">
 			</div>
 			<div class="row">
 				Estado:
@@ -215,5 +290,8 @@
 			});
 		</script>
 	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+
 </body>
 </html >
