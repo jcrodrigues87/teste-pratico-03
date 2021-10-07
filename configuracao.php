@@ -1,6 +1,13 @@
 <?php
-
-    if(isset($_POST['Salvar'])){
+	include "modell/DataAcess/Prestador.Model.Database.php";
+	include "modell/dal/Prestador.modell.dal.cadprestador.php";
+	include "modell/dal/Prestador.modell.dal.cadcontato.php";
+	include "modell/dal/Prestador.modell.dal.cadarquivo.php";	
+				
+				
+	
+    
+	if(isset($_POST['Salvar'])){
         $arquivo = fopen('conf.ini','w');
         if ($arquivo == false) die('Não foi mecher no no arquivo.');
 			$aux = "[conexao]
@@ -26,6 +33,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark style="background-color: #ffffff;">
+  <div class="container">
   <a class="navbar-brand" href="#">Prestador de Serviço</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
@@ -38,12 +46,13 @@
 			</li><li>
 				<a class="nav-link" href="cadastro.php">Cadastrar </a>
 			</li><li>	
-			<a class="nav-link" href="configuracao.php">Configuração <span class="sr-only">(página atual)</span>  </a>
+			<a class="nav-link" href="configuracao.php">Configuração   </a>
 			</li>
 		</ul>
 				
 		
 	</div>
+</div>
 </nav>
 <div class='container'>
 
@@ -61,18 +70,12 @@
     
     <?php
         //verificando se conectou co, sucesso
-        include "modell/DataAcess/Prestador.Model.Database.php";
+        
         if($banco = new Database('conf.ini')){
             echo "<h2>sucesso ao conectar com banco de dados</h2>";
 			echo "<a href='configuracao.php?table=true'>Criar tabelas</a>";
-			
-			if(isset($_GET['table'])){
-				
-				include "modell/dal/Prestador.modell.dal.cadprestador.php";
-				include "modell/dal/Prestador.modell.dal.cadcontato.php";
-				include "modell/dal/Prestador.modell.dal.cadarquivo.php";	
-				
-				
+			if(isset($_GET['table']))
+			{
 				$banco = new Database('conf.ini');
 				$prestadordal = new CadPrestadorDal($banco);
 				$contatos = new CadContatoDal($banco);
@@ -81,8 +84,8 @@
 				$prestadordal->Criartabela();
 				$contatos->Criartabela();
 				$arquivos->Criartabela();
-				
 			}
+			
 			
         }
         else{

@@ -1,11 +1,11 @@
 # Inicio
 
 1 - Copie todos os arquivos para a pasta web do servidor apache
-2 - Abra http://localhost/phpmyadmin
+2 - Abra http://127.0.0.1/phpmyadmin
 3 - crie uma database com nome prestador ou de sua preferencia
 
 abra a pagina web 
-http://localhost/configuracao.php
+http://127.0.0.1/configuracao.php
 
 configure o dados do servidor do mysql nos e clique em salvar
 Sistema devera apresentar a mensagem "sucesso ao conectar com banco de dados"

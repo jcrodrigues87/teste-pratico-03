@@ -24,12 +24,13 @@
 			
 			$id = $prestadordal->insert($cadprestadpr);
            
-           
+           //insere contatos se insert do prestador tiver retornado o id
             if(!(is_null($id))){
               
                 $contatos->setidprestador($id);
                 $cont = count($_POST['nomecont']);
                 $contatodal = new CadContatoDal($banco);
+				
                 for($i=0; $i < $cont; $i++){
                     $nome = $_POST['nomecont'][$i];
                     $departamento =  $_POST['departamentocont'][$i];
@@ -43,26 +44,34 @@
 				/*Gravando os arquivos*/
 				$arquivo = $_FILES['arquivo'];
 				for ($cont = 0;$cont < count($arquivo);$cont++){
-					$desc = str_replace(' ', '', $_POST['descricaoarquivo'][$cont]);
-					$path =  $arquivo['name'][$cont];
-					$ext = pathinfo($path, PATHINFO_EXTENSION);
-					$destino = "upload/".$id."_".$desc.".".$ext;
-					if(move_uploaded_file($arquivo['tmp_name'][$cont],$destino)){
-						$sql = "insert into cad_arquivo  set 
-														link = ?,
-														idprestador = ?,
-														descricao = ?,
-														data = now()						
-														";
-													
-							$banco->Insert($sql,array($destino,$id,$_POST['descricaoarquivo'][$cont]));
+					if(isset($_POST['descricaoarquivo'][$cont])){
+						$desc = str_replace(' ', '', $_POST['descricaoarquivo'][$cont]);
+						$path =  $arquivo['name'][$cont];
+						$ext = pathinfo($path, PATHINFO_EXTENSION);
+						$destino = "upload/".$id."_".$desc.".".$ext;
+						if(move_uploaded_file($arquivo['tmp_name'][$cont],$destino)){
+							$sql = "insert into cad_arquivo  set 
+															link = ?,
+															idprestador = ?,
+															descricao = ?,
+															data = now()						
+															";
+														
+								$banco->Insert($sql,array($destino,$id,$_POST['descricaoarquivo'][$cont]));
+						}
+					
+						else{
+							echo "erro";
+						}
 					}
-					else{
-						echo "erro";
-					}
-				}
+				}//fim do for
 				
 				/*fim da gravacao de arquivos*/
+				?>
+					<script>
+						alert("registro gravado com sucesso");
+					</script>
+				<?php
 				
             }
 
@@ -149,6 +158,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark style="background-color: #ffffff;">
+<div class="container">
   <a class="navbar-brand" href="#">Prestador de Serviço</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
@@ -159,12 +169,13 @@
 			<li class="nav-item active">
 				<a class="nav-link" href="index.php">Home </a>
 			</li><li>
-				<a class="nav-link" href="cadastro.php">Cadastrar <span class="sr-only">(página atual)</span></a>
+				<a class="nav-link" href="cadastro.php">Cadastrar</a>
 			</li><li>	
 			<a class="nav-link" href="configuracao.php">Configuração </a>
 			</li>
 		</ul>
 	</div>
+</div>
 </nav>
 
 <div class="container">
@@ -207,7 +218,7 @@
 				Email:
 			</div>
 			<div class="row">
-				<input type='Email' name='email' value=''>
+				<input type='Email' required name='email' value=''>
 			</div>
 			<div class="row">
 				Cep:
@@ -263,10 +274,14 @@
 				<div id='formacaoarquivo'>
 					<button type='button' id='addarquivo'>Adicionar outros Arquivo</button><br><br>       
 					<div class='row'>
-						Descricao.:<input type='text' size='20' name='descricaoarquivo[]' value='Alvará de Funcionamento'><input type='file' name='arquivo[]' value=''><br>
+						Descricao.:
+						<input type='text' size='20' name='descricaoarquivo[]' value='Alvará de Funcionamento'>
+						<input type='file' name='arquivo[]' value=''><br>
 					</div>
 					<div class='row'>	
-						Descricao.:<input type='text'  size='45' name='descricaoarquivo[]' value='Comprovante de Endereço'><input type='file' name='arquivo[]' value=''><br>
+						Descricao.:
+						<input type='text'  size='45' name='descricaoarquivo[]' required value='Comprovante de Endereço'>
+						<input type='file' name='arquivo[]' required value=''><br>
 					</div>
 				</div>
 				<br>

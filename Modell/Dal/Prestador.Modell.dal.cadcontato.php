@@ -31,10 +31,7 @@
                                     );
             
         
-        echo  $entitties->getidprestador();
-        echo  " - ".$entitties->getnome();
-        echo  " - ".$entitties->getemail();
-        echo  " - ".$entitties->getdepartamento()."<hr>";
+       
     
         }//fim do insert
 		

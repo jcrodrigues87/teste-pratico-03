@@ -20,6 +20,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark style="background-color: #ffffff;">
+<div class="container">
   <a class="navbar-brand" href="#">Prestador de Serviço</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
@@ -28,28 +29,29 @@
 	<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-				<a class="nav-link" href="index.php">Home <span class="sr-only">(página atual)</span> </a>
+				<a class="nav-link" href="index.php">Home</a>
 			</li><li>
 				<a class="nav-link" href="cadastro.php">Cadastrar </a>
 			</li><li>	
 			<a class="nav-link" href="configuracao.php">Configuração </a>
 			</li>
 		</ul>
-				<form action='' method='get' class="form-inline my-2 my-lg-0">
-					<label>Pesquisar</label>
-					<input type='search' class="form-control mr-sm-2" name='Pesquisa' placeholder="Pesquisar" aria-label="Pesquisar" value="<?php if(isset($_GET['Pesquisa'])){echo $_GET['Pesquisa'];}?>">
-					<button class="btn btn-outline-info my-2 my-sm-0" name='Buscar' type="submit">Pesquisar</button>
-				</form>
+				
 			
 		
 	</div>
+</div>
 </nav>
 <div class="container">
 <div class='row'>
 			<h1><br>Listar parceiros</h1>
 		</div>
 	
-	
+	<form action='' method='get' >
+					<label>Pesquisar</label>
+					<input type='search'name='Pesquisa' placeholder="Pesquisar" size='45' aria-label="Pesquisar" value="<?php if(isset($_GET['Pesquisa'])){echo $_GET['Pesquisa'];}?>">
+					<button class="btn btn-outline-info my-2 my-sm-0 btn primary" name='Buscar' type="submit">Pesquisar</button>
+				</form>
    
     <table class='table table-hover' border=1 >
         <thead >
