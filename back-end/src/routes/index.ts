@@ -4,6 +4,6 @@ import { serviceProvidersRoutes } from './serviceProviders.routes'
 
 const router = Router();
 
-router.use('/serviceProviders', serviceProvidersRoutes);
+router.use('/providers', serviceProvidersRoutes);
 
 export { router };
