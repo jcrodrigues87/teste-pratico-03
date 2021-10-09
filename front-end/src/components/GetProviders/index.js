@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
-import search_icon from '../../assets/icons/search.png'
+import search_icon from '../../assets/icons/search.png';
 
-import './styles.css'
+import './styles.css';
 
 function GetProviders(props) {
   return (

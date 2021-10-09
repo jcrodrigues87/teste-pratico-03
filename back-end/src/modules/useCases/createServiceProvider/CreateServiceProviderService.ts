@@ -1,5 +1,5 @@
 import { ICreateServiceProviderDTO } from "../../dtos/ICreateServiceProviderDTO";
-import { ServiceProviderRepository } from "../../repositories/serviceProviderRepository";
+import { ServiceProviderRepository } from "../../repositories/ServiceProviderRepository";
 
 
 class CreateServiceProviderService {

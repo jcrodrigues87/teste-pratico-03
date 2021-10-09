@@ -26,6 +26,10 @@ class ServiceProviderRepository {
     const serviceProvider = this.repository.findOne({ email });
     return serviceProvider;
   }
+
+  async list(): Promise<Array<ServiceProvider>> {
+    return await this.repository.find();
+  }
 }
 
 export { ServiceProviderRepository };
