@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import icon_close from '../../assets/icons/icon_close.jpg'
+import icon_close from '../../assets/icons/close_icon.png'
 
 import "./styles.css"
 

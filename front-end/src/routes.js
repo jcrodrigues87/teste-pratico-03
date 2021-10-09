@@ -8,7 +8,7 @@ function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={ListProviders} />
+        <Route exact path="/register" component={ListProviders} />
         <Route exact path="/providers" component={CreateProviders} />
       </Switch>
     </BrowserRouter>
