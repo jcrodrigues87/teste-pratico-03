@@ -16,7 +16,7 @@
 
 ## 🎨 Layout
 
-<img alt="layout" src=""/>
+- Disponíveis em ***assets*** da pasta principal
 
 ---
 ## 🚀 Como executar o projeto
