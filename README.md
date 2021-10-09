@@ -18,9 +18,7 @@
 
 (inserir imagem)
 
-
 ---
-
 ## 🚀 Como executar o projeto
 
 Este projeto é divido em duas partes:
@@ -48,7 +46,7 @@ $ cd back-end
 $ yarn
 
 ```
- #### Agora você precisa rodar as migrations do TypeORM, antes de realizar esta etapa, primeiro você deve configurar seu banco de dados e as variáveis de ambiente.
+ #### Agora você precisa rodar as migrations do TypeORM. Antes de realizar esta etapa, primeiro você deve configurar seu banco de dados e as variáveis de ambiente.
  - #### ***Banco de dados:*** Acesse o bash do PostgreSQL e digite: 
  ```bash
  #Obs.: Verifque que o banco de dados seja criado no usuário correto do Postgres, ao qual você tem os dados de usuário e senha.
