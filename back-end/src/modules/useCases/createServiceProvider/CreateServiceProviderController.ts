@@ -20,7 +20,7 @@ class CreateServiceProviderController {
       return res.status(201).send();
 
     } catch (err) {
-      console.error(err);
+      console.log(err);
       return res.status(400).json({ "Error": err.message });
     }
   }

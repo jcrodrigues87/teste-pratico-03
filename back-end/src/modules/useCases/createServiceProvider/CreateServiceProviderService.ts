@@ -6,7 +6,7 @@ class CreateServiceProviderService {
   async execute({ cnpj, corporate_name, opening_date, phone, email, cep }: ICreateServiceProviderDTO): Promise<void> {
     const serviceProviderRepository = new ServiceProviderRepository();
 
-    const serviceProvider = serviceProviderRepository.findByEmail(email);
+    const serviceProvider = await serviceProviderRepository.findByEmail(email);
 
     if (serviceProvider) {
       throw new Error("This e-mail already in use!");
