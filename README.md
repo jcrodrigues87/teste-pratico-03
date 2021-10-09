@@ -1,46 +1,92 @@
-# Teste Prático
+<h1 align="center">
+    Teste Prático
+</h1>
 
-O objetivo deste teste é conhecer suas habilidades em:
+# 💻 Sobre o projeto
 
-* Desenvolvimento Web (Tecnologias, Linguagens de programação, Frameworks, Banco de Dados, HTML, CSS e JavaScript);
-* Entendimento e análise dos requisitos;
-* Modelagem de banco de dados;
-* Integração com WebServices;
+👨‍💻 Este teste prático foi desenvolvido com a finalidade de por meus conhecimentos sobre desenvolvido web a prova.
 
-Você deve desenvolver uma pequena aplicação WEB utilizando a linguagem de programação, framework(s) e banco de dados relacional de sua preferência.
+## 🌩️ Problema
+- Uma empresa deseja implementar um canal de relacionamento com prestadores de serviços.
 
-## Problema
+## 🌅 Solução
+- Desenvolver uma aplicação web para que os prestadores de serviço façam seu cadastro e envie a documentação necessária.
 
-### Canal de Relacionamento com Prestadores de Serviço
+---
 
-* Uma empresa deseja implementar um canal de relacionamento com prestadores de serviço, para isso ela deseja desenvolver uma aplicação web para que os prestadores façam seu cadastro e envie a documentação necessária;
-* O cadastro deve conter os seguintes dados do prestador: CNPJ, razão social, data de abertura, telefone, e-mail, CEP, endereço, contatos (nome do contado, departamento, e-mail) e documentos (alvará de funcionamento, comprovante de endereço, outros)
-* Campo endereço deve ser preenchido automaticamente ao informar o CEP;
-* O prestador pode ter um ou mais contatos e no mínimo um;
-* No momento do cadastro deve ser possível realizar o upload dos documentos;
-* Deve ser possível visualizar uma lista com os prestadores de serviço;
-* Selecionando um item da listagem de prestadores de serviço deve ser possível visualizar seu cadastro completo e documentos anexados;
-* Na listagem de prestadores de serviço deve ser possível realizar consultas por CNPJ, razão social e e-mail;
+## 🎨 Layout
 
-## Orientações
-
-* Nesta aplicação é necessário desenvolver apenas duas páginas, uma para listar e outra para realizar o cadastro do prestador de serviços;
-* Não é necessário implementar login ou outra forma de autenticação;
-* O banco de dados não pode permitir 2 prestadores com o mesmo e-mail;
-* Deve usar o webservice da ViaCEP (https://viacep.com.br/) para preencher o endereço após preencher o campo CEP;
-
-## Entrega
-
-* Para iniciar o teste, faça um fork deste repositório, crie uma branch com o seu nome completo e depois envie-nos o pull request. Se você apenas clonar o repositório não vai conseguir fazer push e depois vai ser mais complicado fazer o pull request;
-* edite este README explicando como executar e testar a aplicação;
-* Todos os arquivos necessários para rodar o projeto devem estar no repositório do github;
+(inserir imagem)
 
 
-## Diferenciais
+---
 
-* Qualidade do código escrito;
-* Testes unitários;
-* Comentários claros no código;
-* Commits com mensagens claras;
-* Executar a aplicação em containers Docker;
-* Setup da aplicação em apenas um comando ou um script que facilite esse setup;
+## 🚀 Como executar o projeto
+
+Este projeto é divido em duas partes:
+1. Backend (pasta back-end) 
+2. Frontend (pasta front-end)
+
+💡 O Frontend precisa que o Backend esteja sendo executado para funcionar.
+
+## Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e [PostgreSQL](https://www.postgresql.org/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
+
+#### 🎲 Rodando o Backend (servidor)
+
+```bash
+# Clone este repositório
+$ git clone git@github.com:MaykonLacerda/teste-pratico-03.git
+# Acesse a pasta do projeto no terminal/cmd
+$ cd teste-pratico-03
+# Vá para a pasta back-end
+$ cd back-end
+# Instale as dependências
+$ yarn
+
+```
+ #### Agora você precisa rodar as migrations do TypeORM, antes de realizar esta etapa, primeiro você deve configurar seu banco de dados e as variáveis de ambiente.
+ - #### ***Banco de dados:*** Acesse o bash do PostgreSQL e digite: 
+ ```bash
+ #Obs.: Verifque que o banco de dados seja criado no usuário correto do Postgres, ao qual você tem os dados de usuário e senha.
+ $ CREATE DATABASE database_teste_pratico;
+```
+
+- #### ***Variáveis de ambiente:*** Renomeie o arquivo '.env.example' para '.env'
+
+
+```bash
+#(Os dados que estão aqui são somente um exemplo, podem ser alterados)
+
+##Adicione a porta em que o back-end irá iniciar
+PORT=3333
+
+##Adicione as informações do banco Postgres para o TypeORM
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=database_teste_pratico
+
+#Obs.: Verifique que os dados do banco sejam os mesmos das variáveis de ambiente.
+```
+#### 🧭 Rodando a aplicação web (Frontend)
+
+```bash
+# Clone este repositório (caso não tenha feito anteriormente)
+$ git clone git@github.com:MaykonLacerda/teste-pratico-03.git
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd teste-pratico-03
+# Vá para a pasta da aplicação Front End
+$ cd front-end
+# Instale as dependências
+$ yarn
+# Execute a aplicação em modo de desenvolvimento
+$ yarn start
+# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+```
+
+
