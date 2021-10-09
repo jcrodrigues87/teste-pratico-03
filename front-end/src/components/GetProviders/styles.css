@@ -1,0 +1,11 @@
+.button {
+  font-size: 1rem;
+  margin: 2px 5px;
+  padding: 2px;
+}
+
+.providers-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
