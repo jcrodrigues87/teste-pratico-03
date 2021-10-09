@@ -1,15 +1,20 @@
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
-  padding: 2rem;
   background-color: #d07e01;
-  color: #fff;
-  font-weight: bold;
   width: 100vw
 }
 
 .navbar > a {
+  margin: 2rem 4rem;
+  font-weight: bold;
   cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar > a:hover {
+  color:#bbbfc5;
 }

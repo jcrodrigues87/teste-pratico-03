@@ -1,11 +1,12 @@
 import React from 'react'
 import NavBar from '../../components/NavBar'
+import GetProviders from '../../components/GetProviders'
 
 function ListProviders() {
   return (
     <div>
       <NavBar />
-      <h1>Lista de Prestadores de Serviço</h1>
+      <GetProviders />
     </div>
   )
 }

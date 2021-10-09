@@ -33,7 +33,7 @@ function CreateProviderForm() {
           <p className="upload-text">**Favor enviar os documentos necessários para o cadastro</p>
           <ImageUpload />
         </div>
-        <button className="form-btn"> Salvar Cadastro</button>
+        <button className="form-btn"> Realizar Cadastro</button>
       </form>
     </div>
   )
