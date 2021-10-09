@@ -3,7 +3,10 @@ import ImageUpload from '../ImageUpload';
 
 import './styles.css';
 
-function CreateProviderForm(props) {
+import api from '../../services/api';
+
+
+function CreateProviderForm() {
   const initialFormState = {
     cnpj: '',
     corporate_name: '',
@@ -15,6 +18,11 @@ function CreateProviderForm(props) {
 
   const [provider, setProvider] = useState(initialFormState);
 
+
+  const createProvider = (providers) => {
+    api.post('/providers', providers);
+  }
+
   const handleInputChange = (event) => {
     const { name, value } = event.target
 
@@ -25,7 +33,7 @@ function CreateProviderForm(props) {
     event.preventDefault()
     if (!provider) return
     console.log(provider)
-    props.createProvider(provider);
+    createProvider(provider);
     setProvider(initialFormState);
   }
 

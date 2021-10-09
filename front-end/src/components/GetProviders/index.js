@@ -4,31 +4,31 @@ import see_icon from '../../assets/icons/eyes-icon.png';
 import close_icon from '../../assets/icons/close_icon.png'
 
 import './styles.css';
+import api from '../../services/api';
 
-function GetProviders(props) {
-  const [seeProvider, setSeeProvider] = useState();
+function GetProviders() {
+  const [providers, setProviders] = useState([]);
+  const [seeFullProvider, setSeeFullProvider] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [filterInput, setFilterInput] = useState("");
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+
+    const params = {};
+    if (search) {
+      params.cnpj_like = search
+    }
+
+    api.get('/providers', { params })
+      .then((response) => {
+        setProviders(response.data);
+      })
+  }, [search]);
 
   const handleFilterChange = e => {
     const value = e.target.value || undefined;
-    setFilterInput(value);
+    setSearch(value);
   };
-
-  useEffect(() => {
-    (async () => {
-
-
-    })();
-  }, []);
-
-  const providersFilter = useMemo(() => {
-    const lowerFilter = filterInput.toLowerCase();
-    return props.providers.filter((provider) =>
-      provider.toLowerCase().includes(lowerFilter)
-    );
-  }, [filterInput]);
-
 
   return (
     <div className="container">
@@ -38,9 +38,10 @@ function GetProviders(props) {
             Buscar
           </button>
           <input
-            value={filterInput}
+            type="search"
+            value={search}
             onChange={handleFilterChange}
-            placeholder={"Consultar por CNPJ, razão social ou email . . ."}
+            placeholder="Consultar por CNPJ, razão social ou email . . ."
           />
         </label>
         <table>
@@ -53,8 +54,8 @@ function GetProviders(props) {
             </tr>
           </thead>
           <tbody>
-            {props.providers.length > 0 ? (
-              props.providers.map((provider) => (
+            {providers.length > 0 ? (
+              providers.map((provider) => (
                 <tr key={provider.id}>
                   <td>{provider.cnpj}</td>
                   <td>{provider.corporate_name}</td>
@@ -62,8 +63,7 @@ function GetProviders(props) {
                   <td><img className="see-icon" src={see_icon} alt="Ver informações" onClick={
                     () => {
                       setIsModalVisible(true)
-                      setSeeProvider(provider)
-                      console.log("oi")
+                      setSeeFullProvider(provider)
                     }
                   } /></td>
                 </tr>
@@ -81,18 +81,18 @@ function GetProviders(props) {
               <img src={close_icon} className="close-modal-icon" onClick={() => setIsModalVisible(false)} alt="Fechar informações" />
               <h4 className="form-title">Dados do Prestador</h4>
               <label>CNPJ</label>
-              <input type="text" name="cnpj" value={seeProvider.cnpj} placeholder={seeProvider.cnpj} disabled />
+              <input type="text" name="cnpj" value={seeFullProvider.cnpj} placeholder={seeFullProvider.cnpj} disabled />
               <label>Razão social</label>
-              <input type="text" name="corporate_name" value={seeProvider.corporate_name} placeholder={seeProvider.corporate_name} disabled />
+              <input type="text" name="corporate_name" value={seeFullProvider.corporate_name} placeholder={seeFullProvider.corporate_name} disabled />
               <label>Data de abertura</label>
-              <input type="text" name="opening_date" value={seeProvider.opening_date} placeholder={seeProvider.opening_date} disabled />
+              <input type="text" name="opening_date" value={seeFullProvider.opening_date} placeholder={seeFullProvider.opening_date} disabled />
               <label>Telefone</label>
-              <input type="text" name="phone" value={seeProvider.phone} placeholder={seeProvider.phone} disabled />
+              <input type="text" name="phone" value={seeFullProvider.phone} placeholder={seeFullProvider.phone} disabled />
               <label>E-mail</label>
-              <input type="text" name="email" value={seeProvider.email} placeholder={seeProvider.email} disabled />
+              <input type="text" name="email" value={seeFullProvider.email} placeholder={seeFullProvider.email} disabled />
               <h4 className="form-title form-sub-title">Endereço</h4>
               <label>CEP</label>
-              <input type="text" name="cep" value={seeProvider.cep} placeholder={seeProvider.cep} disabled />
+              <input type="text" name="cep" value={seeFullProvider.cep} placeholder={seeFullProvider.cep} disabled />
             </form>
           </div>
         ) : null}
