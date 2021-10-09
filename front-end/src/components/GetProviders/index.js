@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import search_icon from '../../assets/icons/search.png';
+import see_icon from '../../assets/icons/eyes-icon.png';
 
 import './styles.css';
 
@@ -12,6 +13,7 @@ function GetProviders(props) {
           <thead>
             <tr>
               <th>CNPJ</th>
+              <th>Razão sócial</th>
               <th>E-mail</th>
               <th>Visualizar</th>
             </tr>
@@ -21,8 +23,9 @@ function GetProviders(props) {
               props.providers.map((provider) => (
                 <tr key={provider.id}>
                   <td>{provider.cnpj}</td>
+                  <td>{provider.corporate_name}</td>
                   <td>{provider.email}</td>
-                  <td><img src={search_icon} alt="Buscar" /></td>
+                  <td><img className="search-icon" src={see_icon} alt="Buscar" /></td>
                 </tr>
               ))
             ) : (

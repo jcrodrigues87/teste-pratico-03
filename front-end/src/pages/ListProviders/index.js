@@ -10,7 +10,7 @@ function ListProviders() {
 
   useEffect(() => {
     (async () => {
-      const response = await api.get();
+      const response = await api.get('/providers');
       setProvider(response.data);
     })();
   }, []);
