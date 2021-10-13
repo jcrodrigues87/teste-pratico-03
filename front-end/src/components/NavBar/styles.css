@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #d07e01;
+  width: 100vw
+}
+
+.navbar > a {
+  margin: 2rem 4rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar > a:hover {
+  color:#bbbfc5;
+}

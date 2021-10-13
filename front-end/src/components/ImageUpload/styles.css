@@ -1,0 +1,38 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.4rem 0;
+}
+
+.row > img {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-close:hover {
+  cursor: pointer;
+}
+
+.filename {
+  max-width: 30%;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: flex;
+  justify-content: center;
+
+  width: 40%;
+  margin: 1rem auto 0;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  background: #f0a500;
+  color: #fff;
+  font-weight: bold;
+}
