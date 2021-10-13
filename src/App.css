@@ -1,0 +1,15 @@
+.button-page {
+  flex-basis: 100%;
+  height: 80px;
+  width: 100%;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 15px;
+}
+
+.button-page:active {
+  box-shadow: none;
+}
