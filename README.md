@@ -1,46 +1,73 @@
-# Teste Prático
+# Getting Started with Create React App
 
-O objetivo deste teste é conhecer suas habilidades em:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-* Desenvolvimento Web (Tecnologias, Linguagens de programação, Frameworks, Banco de Dados, HTML, CSS e JavaScript);
-* Entendimento e análise dos requisitos;
-* Modelagem de banco de dados;
-* Integração com WebServices;
+## Available Scripts
 
-Você deve desenvolver uma pequena aplicação WEB utilizando a linguagem de programação, framework(s) e banco de dados relacional de sua preferência.
+In the project directory, you can run:
 
-## Problema
+To run the project it is necessary to have the npm node installed on the pc.
 
-### Canal de Relacionamento com Prestadores de Serviço
+## Installations
 
-* Uma empresa deseja implementar um canal de relacionamento com prestadores de serviço, para isso ela deseja desenvolver uma aplicação web para que os prestadores façam seu cadastro e envie a documentação necessária;
-* O cadastro deve conter os seguintes dados do prestador: CNPJ, razão social, data de abertura, telefone, e-mail, CEP, endereço, contatos (nome do contado, departamento, e-mail) e documentos (alvará de funcionamento, comprovante de endereço, outros)
-* Campo endereço deve ser preenchido automaticamente ao informar o CEP;
-* O prestador pode ter um ou mais contatos e no mínimo um;
-* No momento do cadastro deve ser possível realizar o upload dos documentos;
-* Deve ser possível visualizar uma lista com os prestadores de serviço;
-* Selecionando um item da listagem de prestadores de serviço deve ser possível visualizar seu cadastro completo e documentos anexados;
-* Na listagem de prestadores de serviço deve ser possível realizar consultas por CNPJ, razão social e e-mail;
+After cloning the repository, run in the terminal the command `npm install` inside the project folder.
+After installation, run `npm start`
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Orientações
+### `yarn start`
 
-* Nesta aplicação é necessário desenvolver apenas duas páginas, uma para listar e outra para realizar o cadastro do prestador de serviços;
-* Não é necessário implementar login ou outra forma de autenticação;
-* O banco de dados não pode permitir 2 prestadores com o mesmo e-mail;
-* Deve usar o webservice da ViaCEP (https://viacep.com.br/) para preencher o endereço após preencher o campo CEP;
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Entrega
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-* Para iniciar o teste, faça um fork deste repositório, crie uma branch com o seu nome completo e depois envie-nos o pull request. Se você apenas clonar o repositório não vai conseguir fazer push e depois vai ser mais complicado fazer o pull request;
-* edite este README explicando como executar e testar a aplicação;
-* Todos os arquivos necessários para rodar o projeto devem estar no repositório do github;
+### `yarn build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Diferenciais
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-* Qualidade do código escrito;
-* Testes unitários;
-* Comentários claros no código;
-* Commits com mensagens claras;
-* Executar a aplicação em containers Docker;
-* Setup da aplicação em apenas um comando ou um script que facilite esse setup;
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

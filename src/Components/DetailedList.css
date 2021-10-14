@@ -1,0 +1,21 @@
+.detailed-list {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.detailed-list a {
+  color: black;
+  text-decoration: none;
+}
+
+.detailed-list a:hover {
+  text-decoration: underline;
+}
+
+.contato-list {
+  font-weight: bold;
+  border: 2px solid silver;
+  margin: 10px auto;
+  width: 95%;
+  padding: 10px;
+  position: relative;
+}
